@@ -55,9 +55,10 @@ class Solution(object):
                    q.append((new_y, new_x, time + 1))
                    fresh -= 1
                    max_time = max(time + 1, max_time)
-                   
+         
        if fresh > 0:
            return -1
+    
        return max_time
 
 # Test cases
