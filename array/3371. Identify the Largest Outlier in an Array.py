@@ -26,37 +26,37 @@ Constraints:
 from collections import defaultdict
 
 class Solution(object):
-   def getLargestOutlier(self, nums):
-       """
-       Approach: Use formula total_sum = 2 * sum_special + outlier
-       Therefore outlier = total_sum - 2 * sum_special
-       
-       :type nums: List[int]
-       :rtype: int
-       """
-       # Get total sum once - O(n)
-       total_sum = sum(nums)
-       max_outlier = -float('inf')
-       
-       # Count frequency of each number - O(n)
-       num_count = defaultdict(int)
-       for i in range(len(nums)):
-           num_count[nums[i]] += 1
-           
-       # Check each number as potential sum of special numbers
-       for i in range(len(nums)):
-           sum_special = nums[i]
-           # Calculate potential outlier using formula
-           p_outlier = total_sum - 2 * sum_special
-           
-           # Valid outlier if:
-           # 1. Exists in array
-           # 2. Different from sum_special OR appears multiple times
-           if p_outlier in num_count:
-               if p_outlier != nums[i] or num_count[p_outlier] > 1:
-                   max_outlier = max(p_outlier, max_outlier)
-                   
-       return max_outlier
+  def getLargestOutlier(self, nums):
+    """
+    Approach: Use formula total_sum = 2 * sum_special + outlier
+    Therefore outlier = total_sum - 2 * sum_special
+    
+    :type nums: List[int]
+    :rtype: int
+    """
+    # Get total sum once - O(n)
+    total_sum = sum(nums)
+    max_outlier = -float('inf')
+    
+    # Count frequency of each number - O(n)
+    num_count = defaultdict(int)
+    for i in range(len(nums)):
+        num_count[nums[i]] += 1
+        
+    # Check each number as potential sum of special numbers
+    for i in range(len(nums)):
+        sum_special = nums[i]
+        # Calculate potential outlier using formula
+        p_outlier = total_sum - 2 * sum_special
+        
+        # Valid outlier if:
+        # 1. Exists in array
+        # 2. Different from sum_special OR appears multiple times
+        if p_outlier in num_count:
+            if p_outlier != nums[i] or num_count[p_outlier] > 1:
+                max_outlier = max(p_outlier, max_outlier)
+                
+    return max_outlier
 
 def test():
    solution = Solution()
