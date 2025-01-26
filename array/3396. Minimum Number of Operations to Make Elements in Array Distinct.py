@@ -20,7 +20,7 @@ Constraints:
 * 1 <= nums[i] <= 100
 """
 
-from collections import Counter
+from collections import defaultdict
 
 class Solution(object):
     def minimumOperations(self, nums):
@@ -31,12 +31,12 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        count = {}
+        count = defaultdict(int)
         length = len(nums)
         ans = 0
 
         for i in range(length - 1, -1, -1):
-            count[nums[i]] = count.get(nums[i], 0) + 1
+            count[nums[i]] += 1
             if count[nums[i]] > 1:
                 return (i//3) + 1
 
