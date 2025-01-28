@@ -19,33 +19,33 @@ Constraints:
 """
 
 class Solution(object):
-   def sortColors(self, nums):
-      """
-      Approach: Dutch National Flag algorithm with 3 pointers
-      left: boundary of 0s
-      right: boundary of 2s
-      curr: current element being examined
-      
-      :type nums: List[int]
-      :rtype: None Do not return anything, modify nums in-place instead.
-      """
-      left = curr = 0
-      right = len(nums) - 1
-      
-      # Use <= because right pointer points to unprocessed element
-      while curr <= right:
-          if nums[curr] == 0:
-              # Swap with left boundary and expand 0s section
-              nums[left], nums[curr] = nums[curr], nums[left]
-              left += 1
-              curr += 1
-          elif nums[curr] == 2:
-              # Swap with right boundary and shrink unprocessed section
-              nums[right], nums[curr] = nums[curr], nums[right]
-              right -= 1
-          else:  # nums[curr] == 1
-              # 1s stay in middle
-              curr += 1
+  def sortColors(self, nums):
+    """
+    Approach: Dutch National Flag algorithm with 3 pointers
+    left: boundary of 0s
+    right: boundary of 2s
+    curr: current element being examined
+    
+    :type nums: List[int]
+    :rtype: None Do not return anything, modify nums in-place instead.
+    """
+    left = curr = 0
+    right = len(nums) - 1
+    
+    # Use <= because right pointer points to unprocessed element
+    while curr <= right:
+        if nums[curr] == 0:
+            # Swap with left boundary and expand 0s section
+            nums[left], nums[curr] = nums[curr], nums[left]
+            left += 1
+            curr += 1
+        elif nums[curr] == 2:
+            # Swap with right boundary and shrink unprocessed section
+            nums[right], nums[curr] = nums[curr], nums[right]
+            right -= 1
+        else:  # nums[curr] == 1
+            # 1s stay in middle
+            curr += 1
 
 def test():
    solution = Solution()
