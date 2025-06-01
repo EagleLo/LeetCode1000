@@ -7,7 +7,7 @@ Problem Description:
 Find maximum sum of ascending subarray in array of positive integers.
 Ascending subarray: Each element greater than previous element.
 Single element counts as ascending subarray.
-
+ 
 Example:
 Input: nums = [10,20,30,5,10,50]
 Output: 65
