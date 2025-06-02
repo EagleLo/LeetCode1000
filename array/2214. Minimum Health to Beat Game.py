@@ -8,7 +8,7 @@ You are playing a game with n levels (0 to n-1). Each level i causes damage[i] h
 You have one armor ability that can be used once to block up to 'armor' amount of damage
 on any single level.
 
-Return the minimum initial health needed to complete the game while keeping health > 0.
+This is a greedy problem. Return the minimum initial health needed to complete the game while keeping health > 0.
 
 Example:
 Input: damage = [2,7,4,3], armor = 4
